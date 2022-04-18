@@ -1,0 +1,1 @@
+{"method_name": "mb_2_step_random", "single_task": false, "num_phase1_steps": 100000, "num_phase2_steps": 50000, "num_phase3_steps": 50000, "rnd_explore_steps": 0, "eval_window_size": 500, "num_runs": 10, "stochasticity": 0.25, "alpha": 0.2, "lambda": 0.95, "q_init": 8}
