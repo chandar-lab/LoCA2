@@ -21,7 +21,6 @@ lib64/
 parts/
 sdist/
 var/
-
 wheels/
 pip-wheel-metadata/
 share/python-wheels/
@@ -44,14 +43,12 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
-
 .nox/
 .coverage
 .coverage.*
 .cache
 nosetests.xml
 coverage.xml
-
 *.cover
 *.py,cover
 .hypothesis/
@@ -125,7 +122,6 @@ venv.bak/
 
 # Rope project settings
 .ropeproject
-
 
 # mkdocs documentation
 /site
