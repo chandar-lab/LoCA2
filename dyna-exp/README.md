@@ -1,4 +1,4 @@
-# Code for Section 5 in the paper "Towards Adaptive Model-Based Reinforcement Learning"
+# Code for Section 5 in the paper "Towards Evaluating Adaptivity of Model-Based Reinforcement Learning Methods"
 
 
 # Dependency

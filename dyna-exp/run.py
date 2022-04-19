@@ -1,3 +1,9 @@
+#######################################################################
+ # Copyright (C) 2022 Yi Wan(wan6@ualberta.ca)                         #
+ # Permission given to modify the code as long as you keep this        #
+ # declaration at the top                                              #
+ #######################################################################
+
 from core.component.envs import Env
 from core.network import network_bodies
 from core.network.network_heads import NonLinearDynaQNet
