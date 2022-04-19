@@ -1,0 +1,38 @@
+{
+	"task_name": ["MountainCarLoCA"],
+	"agent_name": ["LinearDyna"],
+	"discount": [0.99],
+	"terminal2_radius": [0.07],
+	"force": [0.001],
+	"log_interval": [10000],
+	"timeout": [500],
+	"if_eval_episodes": [true],
+	"eval_interval": [10000],
+	"eval_episodes": [10],
+	"model_eval_interval": [50000],
+	"model_eval_samples": [1000],
+	"phase1_steps": [2000000],
+	"phase2_steps": [2000000],
+	"max_steps": [4000000],
+	"num_planning_steps": [5],
+	"search_control": ["experience replay", "random feature"],
+	"lr": [0.005, 0.01, 0.05, 0.1, 0.5],
+	"model_lr": [0.005, 0.01, 0.05, 0.1, 0.5],
+	"buffer_size": [10000, 200000, 4000000],
+	"action_stochasticity": [0, 0.3, 0.5],
+	"epsilon": [0.1, 0.5, 1.0],
+	"tile_coding_exps": [
+		{
+			"num_tilings": [3],
+			"num_tiles": [[18, 18]]
+		},
+		{
+			"num_tilings": [5],
+			"num_tiles": [[14, 14]]
+		},
+		{
+			"num_tilings": [10],
+			"num_tiles": [[10, 10]]
+		}
+	]
+}
