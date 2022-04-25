@@ -5,6 +5,14 @@ Using the ReacherLoca domain, we have modified the
 [DreamerV2](https://arxiv.org/abs/2010.02193) agent in a way that we can 
 evaluate the agent's adaptivity using the SimplifiedLoCA notions.
 
+## Dependency
+
+```sh
+pip install tensorflow==2.6.0 tensorflow_probability ruamel.yaml 'gym[atari]'
+```
+Note:
+The DeepMind control suite should be manually installed so that it's possible to use the ReacherLoCA domain. 
+The instructions are given in the parent directory. 
 
 ## Usage
 
