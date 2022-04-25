@@ -27,7 +27,7 @@ For ease of use, we have divided the structure of the code into three directorie
 
 Please follow the instructions of each directory to be able to reproduce the results presented in the paper.
 
-Note: All the code has been tested with `python 3.7`. 
+Note: The code for each section has been tested with `python 3.7`. 
 
 ## Citation
 
