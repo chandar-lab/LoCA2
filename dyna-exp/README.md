@@ -1,10 +1,10 @@
-# Code for Section 5 in the paper "Towards Evaluating Adaptivity of Model-Based Reinforcement Learning Methods"
+# Dyna Experiments 
 
 
-# Dependency
+## Dependency
 * Please check our singularity recipe (LoCA.recipe).
 
-# Usage
+## Usage
 ```python run.py --config-file <config_file_path> --id <param_setting_id>```
 
 For example:

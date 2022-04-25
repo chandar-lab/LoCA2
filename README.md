@@ -25,7 +25,7 @@ For ease of use, we have divided the structure of the code into three directorie
 - `deeprl-exp`: Section 4
 - `dyna-exp`: Section 5
 
-Please follow the instructions of each directory to be able to reproduce the results presented in the respective section of the paper.
+Please follow the instructions of each directory to be able to reproduce the results presented in the paper.
 
 ## Citation
 

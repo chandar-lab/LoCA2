@@ -1,5 +1,10 @@
 # Tabular Experiments
 
+## Dependency
+```sh
+pip install numpy matplotlib 
+```
+
 ## Usage
 To reproduce the results from the paper:
 1) Change the directory to the LoCA2_tabular:```cd LoCA2_tabular```.
