@@ -1,5 +1,9 @@
 # ReacherLoCA Domain
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/79111421/165625119-de96e3a3-b8c9-4da9-843c-f0f898e3c8b3.jpg" width=35%>
+</p>
+
 Creating the ReacherLoCA domain is fairly simple as it is very similar to the Reacher domain.  
 Starting from `reacher.py` and `reacher.xml` available in the dm_control suite, 
 we have modified these files to define the new physics and task for the ReacherLoCA domain. 
