@@ -11,8 +11,16 @@ evaluate the agent's adaptivity using the SimplifiedLoCA notions.
 pip install tensorflow==2.6.0 tensorflow_probability ruamel.yaml 'gym[atari]'
 ```
 Note:
-The DeepMind control suite should be manually installed so that it's possible to use the ReacherLoCA domain. 
-The instructions are given in the parent directory. 
+The **DeepMind control suite** should be manually installed so that it's possible to use the ReacherLoCA domain. The instructions are given in the parent directory.
+
+We also have provided a singularity recipe (DreamerV2.recipe) to enhance installing process. 
+In this recipe, we used an alternative way to install the DeepMind control suite manually, that is:
+
+- Make a fork of the [dm_control](https://github.com/deepmind/dm_control) repo.
+- Follow the instructions to add the ReacherLoCA environment to your fork. 
+- Use `python -m pip install git+git://PATH_TO_YOUR_FORK` to install your modified version of the dm_control.
+
+A sample fork of dm_control is given for this installation.
 
 ## Usage
 

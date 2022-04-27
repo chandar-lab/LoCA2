@@ -11,6 +11,10 @@ import torch.nn as nn
 
 
 class FCBody(nn.Module):
+    """
+    This class defines fully connected layers that serve as the body of
+    a neural network (all layers except for the last one).
+    """
     def __init__(self, state_dim, hidden_units=(64, 64), gate=torch.relu):
         super(FCBody, self).__init__()
         dims = (state_dim,) + hidden_units

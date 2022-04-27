@@ -31,7 +31,6 @@ def run_steps(config):
 			if report is not None:
 				for key in report:
 					reports.setdefault(key, []).extend(report[key])
-			# print(agent.total_steps)
 			log_flag = int(agent.total_steps / config.log_interval) > int(last_total_steps / config.log_interval)
 			save_network_flag = int(agent.total_steps / config.save_interval) > int(
 				last_total_steps / config.save_interval)
