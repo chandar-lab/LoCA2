@@ -60,7 +60,6 @@ def get_env_type(env_id):
 
 # adapted from https://github.com/ikostrikov/pytorch-a2c-ppo-acktr/blob/master/envs.py
 def make_env(env_id, cfg, seed, timeout, episode_life=True):
-    # TODO: add pygame in
     env_type = get_env_type(env_id)
 
     if env_type == 'dm':

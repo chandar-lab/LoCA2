@@ -178,7 +178,6 @@ class Domain:
                 y_new = y
             else:
                 y_new = max(y - 1, 0)
-            #y_new = max(y-1,0)
 
         next_state = x_new*self.width + y_new
 
@@ -344,8 +343,6 @@ class Domain:
 
 
 
-
-
 def test():
     settings = {}
     settings['gamma'] = 0.97
@@ -369,11 +366,6 @@ def test():
     policy2 = domain._get_egreedy_policy(q2, epsilon)
     domain.show_policy(policy2)
     #domain.show_value(np.max(q2, axis=1))
-
-
-
-
-
 
 
 if __name__ == "__main__":

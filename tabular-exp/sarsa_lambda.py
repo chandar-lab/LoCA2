@@ -42,7 +42,6 @@ class SarsaLambdaAgent(object):
         print("Singe-task run started.")
         self.domain.set_task(single_task_id)  # 0 : A ,   1: B
         self.domain.set_phase(0)  # determines initial state distribution
-        #self.domain.act_optimal()
         self.q = np.ones([self.num_states, self.num_actions]) * self.q_init
 
         perf = self.run(steps, eval_window_size, rnd_explore_steps)
@@ -116,7 +115,6 @@ class SarsaLambdaAgent(object):
                 state = next_state
                 action = next_action
 
-            #action = self.select_action(state)  # HvS: remove this line - Q-learning thingy
             next_state, reward = self.domain.take_action(state, action);  time += 1
             next_action = self.select_action(next_state)
 
