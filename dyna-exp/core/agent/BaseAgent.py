@@ -46,7 +46,6 @@ class BaseAgent:
 			action = self.eval_step(state, reward, done, info)
 			state, reward, done, info = task.step(action)
 			ret += reward
-			# print(action)
 		return ret * 1.0 / n
 	
 	def eval_episode(self, ep):
@@ -62,8 +61,6 @@ class BaseAgent:
 			action = self.eval_step(state, reward, done, info, ep)
 			state, reward, done, info = task.step(action)
 			state_list.append(state)
-			# ret = info['episodic_return']
-			# len = info['episodic_length']
 			discounted_episodic_return += discounting * reward
 			discounting *= self.config.discount
 			if done:
@@ -78,20 +75,12 @@ class BaseAgent:
 		return report
 	
 	def eval_episodes(self):
-		# episodic_returns = []
-		# episodic_lengths = []
 		reports = {}
 		for ep in range(self.config.eval_episodes):
 			report = self.eval_episode(ep)
-			# episodic_returns.append(np.sum(total_rewards))
-			# episodic_lengths.append(eps_len)
 			if report is not None:
 				for key in report:
 					reports.setdefault(key, []).extend(report[key])
-		# self.logger.info('steps %d, episodic_return_test %.2f(%.2f)' % (
-		#     self.total_steps, np.mean(episodic_returns), np.std(episodic_returns) / np.sqrt(len(episodic_returns))
-		# ))
-		# self.logger.add_scalar('episodic_return_test', np.mean(episodic_returns), self.total_steps)
 		return reports
 	
 	def record_online_return(self, info, offset=0):
@@ -126,7 +115,6 @@ class BaseAgent:
 	def record_obs(self, env, dir, steps):
 		env = env.env.envs[0]
 		obs = env.render(mode='rgb_array')
-		# imsave('%s/%04d.png' % (dir, steps), obs)
 
 
 class BaseActor(mp.Process):

@@ -24,14 +24,13 @@ except ImportError:
 
 _game_envs = defaultdict(set)
 for env in gym.envs.registry.all():
-    # TODO: solve this with regexes
     env_type = env.entry_point.split(':')[0].split('.')[-1]
     _game_envs[env_type].add(env.id)
 
 
 _game_envs['user_env'] = {
     'RiverSwim',
-	'MountainCarLoCA',
+    'MountainCarLoCA',
     'FourRoomsLoCA',
     'ContMountainCar'
 }
@@ -46,7 +45,6 @@ def get_env_type(env_id):
 
     if env_id in _game_envs.keys():
         env_type = env_id
-        # env_id = [g for g in _game_envs[env_type]][0]
     else:
         env_type = None
         for g, e in _game_envs.items():
@@ -69,7 +67,6 @@ def make_env(env_id, cfg, seed, timeout, episode_life=True):
         import dm_control2gym
         _, domain, task = env_id.split('-')
         env = dm_control2gym.make(domain_name=domain, task_name=task)
-        # TODO: add timeout
     elif env_type == 'user_env':
         from . import user_envs
         env_class = getattr(user_envs, env_id)

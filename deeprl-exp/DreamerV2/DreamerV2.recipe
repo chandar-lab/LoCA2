@@ -1,0 +1,78 @@
+BootStrap: docker
+From: nvidia/cuda:11.4.2-cudnn8-runtime-ubuntu18.04
+
+%runscript
+    exec /bin/sh "$@"
+
+%environment
+    export LANG=C.UTF-8
+    export LD_LIBRARY_PATH=/opt/mujoco210/bin:${LD_LIBRARY_PATH}
+    export LD_LIBRARY_PATH=/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
+    export MJLIB_PATH=/opt/mujoco210/bin/libmujoco210.so
+    export MUJOCO_GL=egl
+    export PATH="/opt/.conda/bin:${PATH}"
+
+%post
+    export WORKDIR=/opt
+    export LD_LIBRARY_PATH=/opt/mujoco210/bin:${LD_LIBRARY_PATH}
+    export MJLIB_PATH=/opt/mujoco210/bin/libmujoco210.so
+    export PATH="/opt/.conda/bin:${PATH}"
+
+    DEBIAN_FRONTEND=noninteractive apt-get -y update
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+        git \
+        net-tools \
+        software-properties-common \
+        unzip \
+        wget \
+        vim \
+        ffmpeg \
+        libgl1-mesa-dev \
+        mesa-utils \
+        libglew-dev \
+        libglfw3-dev \
+        unrar \
+        tar \
+        xvfb \
+        && apt-get clean
+
+    export MUJOCO_GL=egl
+    cd /opt
+    DEBIAN_FRONTEND=noninteractive wget https://mujoco.org/download/mujoco210-linux-x86_64.tar.gz
+    tar -zxvf $WORKDIR/mujoco210-linux-x86_64.tar.gz
+    rm -rf $WORKDIR/mujoco210-linux-x86_64.tar.gz
+    cp $WORKDIR/mujoco210/bin/*.so /usr/local/lib/
+
+    cd /opt
+    DEBIAN_FRONTEND=noninteractive wget \
+    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/.conda \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh
+
+    conda install python=3.7
+
+    python -m pip install --no-cache-dir 'gym[atari]'
+    python -m pip install --no-cache-dir atari_py
+    python -m pip install --no-cache-dir crafter
+    python -m pip install --no-cache-dir ruamel.yaml
+    python -m pip install --no-cache-dir numpy
+    python -m pip install --no-cache-dir matplotlib
+    python -m pip install --no-cache-dir tensorflow==2.6.0
+    python -m pip install --no-cache-dir tensorboard
+    python -m pip install --no-cache-dir tensorboard-plugin-wit
+    python -m pip install --no-cache-dir tensorflow_probability==0.12.2
+    python -m pip install --no-cache-dir keras==2.6.0
+    python -m pip install --no-cache-dir tensorflow-estimator==2.6.0
+    # Change the path of the fork to your desired one.
+    # This is just a sample fork of dm_control with the ReacherLoCA domain.
+    python -m pip install git+git://github.com/alirahkay/dm_control
+
+    DEBIAN_FRONTEND=noninteractive wget -L -nv http://www.atarimania.com/roms/Roms.rar && \
+        unrar x Roms.rar && \
+        unzip ROMS.zip && \
+        python -m atari_py.import_roms ROMS && \
+        rm -rf Roms.rar ROMS.zip ROMS
+
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+    rm -rf /root/.cache/pip

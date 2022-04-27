@@ -38,7 +38,6 @@ def get_logger(exp_name, sweep_id, log_level=0):
 class Logger(object):
     def __init__(self, vanilla_logger, tf_log_dir, log_level=0):
         self.log_level = log_level
-        # self.writer = SummaryWriter(tf_log_dir)
         if vanilla_logger is not None:
             self.info = vanilla_logger.info
             self.debug = vanilla_logger.debug

@@ -29,7 +29,6 @@ def set_optimizer(params, cfg):
     
 
 def select_device(gpu_id):
-    # if torch.cuda.is_available() and gpu_id >= 0:
     if gpu_id >= 0:
         ParamConfig.DEVICE = torch.device('cuda:%d' % (gpu_id))
     else:
@@ -55,7 +54,6 @@ def to_np(t):
 def random_seed(seed=None):
     np.random.seed(seed)
     torch.manual_seed(seed)
-    # torch.manual_seed(np.random.randint(int(1e6)))
 
 
 def set_one_thread():

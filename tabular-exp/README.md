@@ -18,6 +18,3 @@ To reproduce the results from the paper:
 | `method  = 4`    |  mb_2_step_random|
 4) Train the selected method, using:```python main.py ```. It takes between 2-5 minutes to train a method. Results are written to /data
 5) After training all 4 methods, visualize the results using:  ```python show_results.py```.
-
-
-

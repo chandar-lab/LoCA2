@@ -59,6 +59,10 @@ class MountainCarLoCA(LoCAEnv):
 	Episode Termination:
 		The car position is 0.5.
 		The car position is around -0.5234 and the velocity is around 0.
+
+		Originally introduced in:
+		The LoCA Regret: A Consistent Metric to Evaluate Model-Based Behavior in Reinforcement Learning
+		https://arxiv.org/abs/2007.03158
 	"""
 	
 	metadata = {

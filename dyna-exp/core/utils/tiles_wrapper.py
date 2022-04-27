@@ -68,7 +68,6 @@ class TileCoder(Representation):
                 ones.extend(list(tc))
         else:
             ints = [] if action is None else [action]
-            # tc = tiles(64, self.tilings, self.scale * state, ints=ints)
             tc = tiles(self.mem_size, self.tilings, float(self.tiles) * state, ints=ints)
             ones.extend(list(tc))
         rep = np.zeros(self.mem_size)
