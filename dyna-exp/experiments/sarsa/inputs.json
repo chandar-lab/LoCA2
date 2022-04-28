@@ -1,0 +1,36 @@
+{
+    "task_name": ["MountainCarLoCA"],
+	"agent_name": ["SarsaLmbdaTileCoding"],
+	"timeout": [500],
+	"discount": [0.99],
+	"epsilon_init": [0.1],
+	"ep_decay_rate": [0.9],
+	"epsilon_decay_steps": [10000],
+	"min_epsilon": [0.1],
+	"log_interval": [10000],
+	"if_eval_episodes": [true],
+	"eval_interval": [10000],
+	"eval_episodes": [10],
+	"force": [0.001],
+	"terminal2_radius": [0.07],
+	"phase1_steps": [2000000],
+	"phase2_steps": [2000000],
+	"max_steps": [4000000],
+	"tile_coding_config": [
+		{
+			"num_tilings": [3],
+			"num_tiles": [[18, 18]]
+		},
+		{
+			"num_tilings": [5],
+			"num_tiles": [[14, 14]]
+		},
+		{
+			"num_tilings": [10],
+			"num_tiles": [[10, 10]]
+		}
+	],
+	"lAmbda": [0, 0.5, 0.9],
+	"lr": [0.005, 0.01, 0.05, 0.1, 0.5],
+	"action_stochasticity": [0.0, 0.3, 0.5]
+}

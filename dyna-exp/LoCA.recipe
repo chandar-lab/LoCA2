@@ -1,0 +1,106 @@
+Bootstrap: docker
+From: ubuntu:16.04
+
+%environment
+    export PATH="/usr/local/miniconda3/bin:$PATH"
+
+%post
+    apt-get -y update
+    apt-get -y install wget bzip2 parallel git libopenmpi-dev libsm6 libxrender-dev build-essential python-dev swig python-pygame python-setuptools
+
+    # Installing miniconda
+    wget https://repo.continuum.io/miniconda/Miniconda3-py37_4.9.2-Linux-x86_64.sh
+    bash Miniconda3-py37_4.9.2-Linux-x86_64.sh -b -p /usr/local/miniconda3
+
+    /usr/local/miniconda3/bin/pip install absl-py==0.8.1
+    /usr/local/miniconda3/bin/pip install attrs==19.3.0
+    /usr/local/miniconda3/bin/pip install cachetools==3.1.1
+    /usr/local/miniconda3/bin/pip install certifi==2019.11.28
+    /usr/local/miniconda3/bin/pip install chardet==3.0.4
+    /usr/local/miniconda3/bin/pip install Click==7.0
+    /usr/local/miniconda3/bin/pip install cloudpickle==1.2.2
+    /usr/local/miniconda3/bin/pip install colorama==0.4.3
+    /usr/local/miniconda3/bin/pip install filelock==3.0.12
+    /usr/local/miniconda3/bin/pip install funcsigs==1.0.2
+    /usr/local/miniconda3/bin/pip install future==0.18.2
+    /usr/local/miniconda3/bin/pip install grpcio==1.25.0
+    /usr/local/miniconda3/bin/pip install gym==0.15.4
+    /usr/local/miniconda3/bin/pip install idna==2.8
+    /usr/local/miniconda3/bin/pip install importlib-metadata==1.3.0
+    /usr/local/miniconda3/bin/pip install jsonschema==3.2.0
+    /usr/local/miniconda3/bin/pip install Markdown==3.1.1
+    /usr/local/miniconda3/bin/pip install more-itertools==8.0.2
+    /usr/local/miniconda3/bin/pip install numpy==1.17.4
+    /usr/local/miniconda3/bin/pip install oauthlib==3.1.0
+    /usr/local/miniconda3/bin/pip install opencv-python==4.1.2.30
+    /usr/local/miniconda3/bin/pip install pandas==1.2.4
+    /usr/local/miniconda3/bin/pip install packaging==19.2
+    /usr/local/miniconda3/bin/pip install pluggy==0.13.1
+    /usr/local/miniconda3/bin/pip install protobuf==3.11.1
+    /usr/local/miniconda3/bin/pip install psutil==5.6.7
+    /usr/local/miniconda3/bin/pip install py==1.10.0
+    /usr/local/miniconda3/bin/pip install py-spy==0.3.1
+    /usr/local/miniconda3/bin/pip install pyasn1==0.4.8
+    /usr/local/miniconda3/bin/pip install pyasn1-modules==0.2.7
+    /usr/local/miniconda3/bin/pip install pyglet==1.3.2
+    /usr/local/miniconda3/bin/pip install pyparsing==2.4.5
+    /usr/local/miniconda3/bin/pip install pyrsistent==0.15.6
+    /usr/local/miniconda3/bin/pip install pytest==5.3.1
+    /usr/local/miniconda3/bin/pip install PyYAML==5.4
+    /usr/local/miniconda3/bin/pip install ray==0.7.6
+    /usr/local/miniconda3/bin/pip install redis==3.3.11
+    /usr/local/miniconda3/bin/pip install requests==2.22.0
+    /usr/local/miniconda3/bin/pip install requests-oauthlib==1.3.0
+    /usr/local/miniconda3/bin/pip install rsa==4.7
+    /usr/local/miniconda3/bin/pip install scipy==1.3.3
+    /usr/local/miniconda3/bin/pip install setproctitle==1.1.10
+    /usr/local/miniconda3/bin/pip install six==1.13.0
+    /usr/local/miniconda3/bin/pip install tensorboard==2.1.0
+    /usr/local/miniconda3/bin/pip install torch==1.3.1
+    /usr/local/miniconda3/bin/pip install urllib3==1.25.8
+    /usr/local/miniconda3/bin/pip install wcwidth==0.1.7
+    /usr/local/miniconda3/bin/pip install Werkzeug==0.16.0
+    /usr/local/miniconda3/bin/pip install zipp==0.6.0
+    /usr/local/miniconda3/bin/pip install scipy==1.3.3
+
+     /usr/local/miniconda3/bin/pip install joblib
+
+    # Installing shapely
+    /usr/local/miniconda3/bin/pip install shapely
+
+    git clone https://github.com/pybox2d/pybox2d
+    cd pybox2d
+    /usr/local/miniconda3/bin/python setup.py build
+    /usr/local/miniconda3/bin/python setup.py install
+
+    # Installing Seaborn
+    /usr/local/miniconda3/bin/pip install matplotlib
+    /usr/local/miniconda3/bin/pip install seaborn
+
+    # Installing Pygame
+    /usr/local/miniconda3/bin/pip install pygame
+
+    # Installing PLE
+    cd /home
+    git clone https://github.com/ntasfi/PyGame-Learning-Environment
+    cd PyGame-Learning-Environment
+    /usr/local/miniconda3/bin/pip install -e .
+
+    # Installing MinAtar
+    cd /home
+    git clone https://github.com/kenjyoung/MinAtar.git
+    cd MinAtar
+    /usr/local/miniconda3/bin/python setup.py install
+
+    # Install gym_pygame
+    cd /home
+    git clone https://github.com/qlan3/gym-games.git
+    cd gym-games
+    /usr/local/miniconda3/bin/pip install -e .
+
+    # Installing AlphaEx
+    cd /home
+    git clone https://github.com/AmiiThinks/AlphaEx.git
+    cd AlphaEx
+    /usr/local/miniconda3/bin/pip install -e .
+
