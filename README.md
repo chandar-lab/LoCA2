@@ -19,6 +19,36 @@ these insights in the case of linear function approximation by demonstrating tha
 achieves effective adaptation to local changes. Furthermore, we provide detailed insights into the challenges of 
 building an adaptive nonlinear model-based method, by experimenting with a nonlinear version of Dyna.
 
+## Setup
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/79111421/165789118-fcd43524-be8e-4e3c-b4dd-1a7d6ce08a93.png" width=40%>
+</p>
+
+An experiment in our improved version of the previously introduced LoCA setup consists of 
+three different training phases. During Phase 1, the reward function is rA; upon transitioning 
+to Phase 2, the reward function changes to rB and remains unchanged upon transitioning to Phase 3. 
+Crucially, the initial state distribution during training differs for the different phases (see the figure above). 
+We evaluate performance by simply measuring the average return over the evaluation episodes and comparing 
+it with the average return of the corresponding optimal policy during all phases. Furthermore, as initial-state distribution, 
+the full state-space is used.
+
+Under our new experiment configuration, we call a method adaptive if it is able to reach (near) optimal expected 
+return in Phase 2 (after sufficiently long training) while also reaching (near) optimal expected return in Phase 1. 
+If a method is able to reach (near) optimal expected return in Phase 1 but not in Phase 2, we call the method non-adaptive.
+
+____ 
+
+Additionally, we have presented a continuous-action domain with pixel-level states that enabled us to 
+evaluate [PlaNet](https://arxiv.org/abs/1811.04551) and [DreamerV2](https://arxiv.org/abs/2010.02193) 
+using our modified version of the LoCA setup. This domain is a variant of the original Reacher environment 
+in the [DeepMind Control Suite](https://github.com/deepmind/dm_control) (see figure below). Furthermore,
+we have provided the full instructions on how to use it.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/79111421/165799596-b6f12157-0996-45be-96f2-b4ecf964c00f.jpg" width=40%>
+</p>
+
 
 ## Usage
 For ease of use, we have divided the structure of the code into three directories. Each directory includes the code for a specific section of the paper:
@@ -43,6 +73,7 @@ and [the previous work](https://arxiv.org/abs/2007.03158).
   year={2022}
 }
 ```
+
 
 ```
 @misc{seijen2020loca,
