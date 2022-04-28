@@ -62,8 +62,7 @@ Note: The code for each section has been tested with `python 3.7`.
 
 ## Citation
 
-If you found this work useful, please consider citing [our paper](https://arxiv.org/abs/2204.11464) 
-and [the previous work](https://arxiv.org/abs/2007.03158). 
+If you found this work useful, please consider citing the following two LoCA papers:
 
 ```
 @article{wan2022loca2,
@@ -76,12 +75,15 @@ and [the previous work](https://arxiv.org/abs/2007.03158).
 
 
 ```
-@misc{seijen2020loca,
-    title={The LoCA Regret: A Consistent Metric to Evaluate Model-Based Behavior in Reinforcement Learning},
-    author={Harm van Seijen and Hadi Nekoei and Evan Racah and Sarath Chandar},
-    year={2020},
-    eprint={2007.03158},
-    archivePrefix={arXiv},
-    primaryClass={cs.LG}
+@inproceedings{vanseijen-LoCA,
+ author = {Van Seijen, Harm and Nekoei, Hadi and Racah, Evan and Chandar, Sarath},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {H. Larochelle and M. Ranzato and R. Hadsell and M. F. Balcan and H. Lin},
+ pages = {6562--6572},
+ publisher = {Curran Associates, Inc.},
+ title = {The LoCA Regret: A Consistent Metric to Evaluate Model-Based Behavior in Reinforcement Learning},
+ url = {https://proceedings.neurips.cc/paper/2020/file/48db71587df6c7c442e5b76cc723169a-Paper.pdf},
+ volume = {33},
+ year = {2020}
 }
 ```
